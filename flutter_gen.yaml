@@ -1,0 +1,36 @@
+flutter_gen:
+  output: lib/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  integrations:
+    flutter_svg: true
+    lottie: true
+
+  assets:
+    enabled: true
+
+    outputs:
+      class_name: MyAssets
+      package_parameter_enabled: false
+      # Assets.imagesChip
+      # style: camel-case
+
+      # Assets.images_chip
+      # style: snake-case
+
+      # Assets.images.chip (default style)
+      style: dot-delimiter
+
+  fonts:
+    enabled: true
+    outputs:
+      class_name: MyFontFamily
+
+  colors:
+    enabled: true
+    outputs:
+      class_name: MyColorName
+    inputs:
+      - assets/color/colors.xml
+      - assets/color/colors2.xml
+      - assets/color/colors2.xml # duplicated
