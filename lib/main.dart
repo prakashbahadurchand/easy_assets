@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 
 import 'gen/assets.gen.dart';
@@ -9,8 +9,27 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // Set the default locale
+  Locale _locale = const Locale('en');
+
+  // Function to change the locale
+  void _changeLocale() {
+    setState(() {
+      if (_locale.languageCode == 'en') {
+        _locale = const Locale('ne'); // Switch to Nepali
+      } else {
+        _locale = const Locale('en'); // Switch back to English
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +38,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      /*localizationsDelegates: const [
-        AppLocalizations.delegate, // Add this line
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en'), // English
-        Locale('es'), // Spanish
-      ],*/
-      home: const HomePage(),
+      locale: _locale, // Pass the selected locale here
+      home: HomePage(onLocaleChange: _changeLocale),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final VoidCallback onLocaleChange;
+
+  const HomePage({super.key, required this.onLocaleChange});
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +116,12 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Lottie.asset(Assets.lottie.geometricalAnimation),
+
+            // Button to change the locale
+            ElevatedButton(
+              onPressed: onLocaleChange,
+              child: Text(loc.languageSelection),
+            ),
           ],
         ),
       ),
