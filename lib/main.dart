@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 
@@ -17,6 +18,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Easy Assets Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      /*localizationsDelegates: const [
+        AppLocalizations.delegate, // Add this line
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('es'), // Spanish
+      ],*/
       home: const HomePage(),
     );
   }
@@ -47,6 +60,13 @@ class HomePage extends StatelessWidget {
             Assets.images.profileJpg.image(width: 150, height: 150),
             const SizedBox(height: 10),
             Assets.images.chip1.image(width: 150, height: 150),
+            const Divider(),
+
+            const Text(
+              'Localization Text:',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Text(AppLocalizations.of(context)!.helloWorld),
             const Divider(),
 
             const Text(
