@@ -1,0 +1,19 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        generate_for:
+          - lib/**.dart
+        options:
+          build_extensions:
+            '^lib/{{}}.dart': 'lib/gen/{{}}.g.dart'
+      freezed|freezed: #freezed_builder
+        generate_for:
+          - lib/**.dart
+        enabled: true
+        options:
+          build_extensions:
+            '^lib/{{}}.dart': 'lib/gen/{{}}.freezed.dart'
+          # Disable generation of hashCode, ==, copyWith functions
+          copy_with: true
+          equal: false

@@ -1,6 +1,59 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
+  "@@locale": "en",
+
+  "appTitle": "My Application",
+  "@appTitle": {
+    "description": "The title of the application displayed on the home screen."
+  },
+
+  "greetingMessage": "Hello, {userName}!",
+  "@greetingMessage": {
+    "description": "Greeting message displayed to the user.",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "John"
+      }
+    }
+  },
+
+  "welcomeMessage": "Welcome to our app. We hope you enjoy your experience.",
+  "@welcomeMessage": {
+    "description": "Message displayed on the welcome screen."
+  },
+
+  "logoutConfirmation": "Are you sure you want to log out?",
+  "@logoutConfirmation": {
+    "description": "Confirmation message for logging out."
+  },
+
+  "loadingMessage": "Loading, please wait...",
+  "@loadingMessage": {
+    "description": "Message displayed while data is loading."
+  },
+
+  "errorMessage": "An error occurred. Please try again later.",
+  "@errorMessage": {
+    "description": "Generic error message displayed when an error occurs."
+  },
+
+  "retryButton": "Retry",
+  "@retryButton": {
+    "description": "Label for the retry button."
+  },
+
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "description": "Label for the cancel button."
+  },
+
+  "settings": "Settings",
+  "@settings": {
+    "description": "Label for the settings screen."
+  },
+
+  "languageSelection": "Select Language",
+  "@languageSelection": {
+    "description": "Label for selecting a language."
   }
 }

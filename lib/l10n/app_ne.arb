@@ -1,0 +1,59 @@
+{
+  "@@locale": "ne",
+
+  "appTitle": "मेरो अनुप्रयोग",
+  "@appTitle": {
+    "description": "होम स्क्रिनमा देखिने अनुप्रयोगको शीर्षक।"
+  },
+
+  "greetingMessage": "नमस्ते, {userName}!",
+  "@greetingMessage": {
+    "description": "प्रयोगकर्तालाई देखाइने स्वागत सन्देश।",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "राम"
+      }
+    }
+  },
+
+  "welcomeMessage": "हाम्रो एपमा स्वागत छ। तपाईंले हाम्रो सेवा मन पराउनुहुनेछ भन्ने आशा छ।",
+  "@welcomeMessage": {
+    "description": "स्वागत स्क्रिनमा देखाइने सन्देश।"
+  },
+
+  "logoutConfirmation": "तपाईं साँच्चै लगआउट गर्न चाहनुहुन्छ?",
+  "@logoutConfirmation": {
+    "description": "लगआउट गर्दा देखाइने पुष्टि सन्देश।"
+  },
+
+  "loadingMessage": "कृपया प्रतिक्षा गर्नुहोस्...",
+  "@loadingMessage": {
+    "description": "डाटा लोड गर्दा देखाइने सन्देश।"
+  },
+
+  "errorMessage": "त्रुटि भयो। कृपया पछि पुन: प्रयास गर्नुहोस्।",
+  "@errorMessage": {
+    "description": "त्रुटि हुँदा देखाइने साधारण सन्देश।"
+  },
+
+  "retryButton": "पुन: प्रयास गर्नुहोस्",
+  "@retryButton": {
+    "description": "पुन: प्रयास गर्ने बटनको लेबल।"
+  },
+
+  "cancelButton": "रद्द गर्नुहोस्",
+  "@cancelButton": {
+    "description": "रद्द गर्ने बटनको लेबल।"
+  },
+
+  "settings": "सेटिङहरू",
+  "@settings": {
+    "description": "सेटिङ स्क्रिनको लेबल।"
+  },
+
+  "languageSelection": "भाषा चयन गर्नुहोस्",
+  "@languageSelection": {
+    "description": "भाषा चयन गर्ने लेबल।"
+  }
+}

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
@@ -40,6 +39,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Easy Assets Demo'),
@@ -55,18 +55,28 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             // Using AssetGenImage
-            Assets.images.logo.image(width: 150, height: 150),
+            Assets.images.imgDog.image(width: 150, height: 150),
             const SizedBox(height: 10),
-            Assets.images.profileJpg.image(width: 150, height: 150),
+            Assets.images.imgPerson.image(width: 150, height: 150),
             const SizedBox(height: 10),
-            Assets.images.chip1.image(width: 150, height: 150),
             const Divider(),
 
             const Text(
               'Localization Text:',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            Text(AppLocalizations.of(context)!.helloWorld),
+            Text(loc.greetingMessage('John')),
+            const SizedBox(height: 20),
+            Text(loc.welcomeMessage),
+            const SizedBox(height: 20),
+            Text(loc.loadingMessage),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                //_showLogoutConfirmationDialog(context, loc);
+              },
+              child: Text(loc.logoutConfirmation),
+            ),
             const Divider(),
 
             const Text(
@@ -75,7 +85,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             SvgPicture.asset(
-              Assets.images.icons.dartTest, // Load SVG using FlutterGen
+              Assets.images.svgTarget, // Load SVG using FlutterGen
               width: 100,
               height: 100,
             ),
@@ -86,18 +96,6 @@ class HomePage extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            FutureBuilder<String>(
-              future: rootBundle.loadString(Assets.json.map),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                }
-                if (snapshot.hasError) {
-                  return const Text('Error loading JSON');
-                }
-                return Text(snapshot.data ?? 'No data found');
-              },
-            ),
             const Divider(),
 
             const Text(
